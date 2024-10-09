@@ -1,0 +1,38 @@
+[Unit]
+Description=An organizer for your porn, written in Go
+After=network-online.target
+Wants=network-online.target
+Before=shutdown.target
+
+[Container]
+AutoUpdate=registry
+Image=docker.io/stashapp/stash:latest
+PublishPort=9999:9999
+Network=podman1
+
+# 在此处保留配置、抓取工具和插件
+Volume=/home/yilibingtang/ProgramData/Podman/stash/config:/root/.stash:Z
+# 将此指向您的收藏。
+Volume=/mnt/shiguangwu:/data:z
+# 这是 Stash 的元数据所在的位置
+Volume=/home/yilibingtang/ProgramData/Podman/stash/metadata:/metadata:Z
+# 任何其他缓存内容。
+Volume=/home/yilibingtang/ProgramData/Podman/stash/cache:/cache:Z
+# 在何处存储二进制 blob 数据（场景封面、图像）
+Volume=/home/yilibingtang/ProgramData/Podman/stash/blobs:/blobs:Z
+# 存储生成内容的位置（屏幕截图、预览、转码、精灵）
+Volume=/home/yilibingtang/ProgramData/Podman/stash/generated:/generated:Z
+
+
+Environment=STASH_STASH=/data/
+Environment=STASH_GENERATED=/generated/
+Environment=STASH_METADATA=/metadata/
+Environment=STASH_CACHE=/cache/
+Environment=STASH_PORT=9999
+Environment=TZ=Asia/Shanghai
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

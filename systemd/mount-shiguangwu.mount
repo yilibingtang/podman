@@ -1,0 +1,16 @@
+[Unit]
+Description= mount a samba shiguangwu
+Requires=network-online.target
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=//192.168.31.202/hdd0/
+Where=/mnt/shiguangwu
+Type=cifs
+#下面是samba服务的账号、密码、挂栽权限等配置
+Options=username=yilibingtang,password=xcp727499,dir_mode=0777,rw,dir_mode=0777,file_mode=0777
+TimeoutSec=30
+
+[Install]
+WantedBy=default.target
