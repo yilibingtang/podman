@@ -11,23 +11,29 @@ PublishPort=3000:3000/tcp
 PublishPort=3001:3001
 Network=podman1
 HostName=moviepilot
-Volume=/mnt/shiguangwu/离线下载:/media:z
+
+Volume=/mnt/shiguangwu/离线下载:/media/shiguangwu:z
 Volume=/home/yilibingtang/ProgramData/Podman/moviepilot/config:/config:Z
 Volume=/home/yilibingtang/ProgramData/Podman/moviepilot/core:/moviepilot/.cache/ms-playwright:Z
-Volume=/run/podman/podman.sock:/var/run/docker.sock:z
+Volume=/run/podman/podman.sock:/var/run/docker.sock:Z
+
 Environment=NGINX_PORT=3000
 Environment=PORT=3001
 Environment=PUID=0
 Environment=PGID=0
 Environment=UMASK=000
 Environment=TZ=Asia/Shanghai
-Environment=AUTH_SITE=1ptba
+
+Environment=AUTH_SITE=ptba
 Environment=PTBA_UID=109689
-# 为密匙，不是密码
-Environment=PTBA_PASSKEY=xcp727499
+Environment=PTBA_PASSKEY=19573897f272e0be93b9ad57f14e3707
+
 Environment=MOVIEPILOT_AUTO_UPDATE=true
 Environment=SUPERUSER=yilibingtang
 Environment=API_TOKEN=moviepilot
+
+PodmanArgs=--privileged
+
 [Service]
 Restart=always
 
