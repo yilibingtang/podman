@@ -1,4 +1,4 @@
-
+name: ghost
 version: "3"
 services:
   chinesesubfinder:
