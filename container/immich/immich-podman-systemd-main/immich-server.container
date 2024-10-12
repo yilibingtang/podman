@@ -9,8 +9,8 @@ EnvironmentFile=immich.env
 Image=immich-server.image
 Volume=/path/to/immich/library:/usr/src/app/upload:z
 
-# If localtime is not set (e.g. Fedora CoreOS) : 
-# Volume=/usr/share/zoneinfo/Europe/Paris:/etc/localtime:ro
+# 如果未设置 localtime （例如 Fedora CoreOS） ：
+# 音量=/usr/share/zoneinfo/Europe/Paris：/etc/localtime：ro
 Volume=/etc/localtime:/etc/localtime:ro
 
 HealthCmd=["/bin/bash", "-c", "exec 5<>/dev/tcp/127.0.0.1/3001"]
@@ -21,7 +21,7 @@ HealthRetries=10
 Notify=healthy
 
 [Service]
-# give some time to the database to start
+# 给数据库一些时间来启动
 ExecStartPre=sleep 30
 Restart=always
 
