@@ -1,0 +1,21 @@
+[Unit]
+Description=Podman container-Trilium_CN.service
+Documentation=man:podman-generate-systemd(1)
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/run/containers/storage
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStart=/usr/bin/podman start Trilium_CN
+ExecStop=/usr/bin/podman stop  \
+        -t 10 Trilium_CN
+ExecStopPost=/usr/bin/podman stop  \
+        -t 10 Trilium_CN
+PIDFile=/run/containers/storage/overlay-containers/39ad85d369d52445f576c32f87ae7f91fc5406654dbae515466b3665f97c08c6/userdata/conmon.pid
+Type=forking
+
+[Install]
+WantedBy=default.target
