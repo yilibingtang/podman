@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    zfile:
+        container_name: 
+        restart: always
+        ports:
+            - ''
+        volumes:
+           
+        image: 

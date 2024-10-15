@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  docker:
+    image:  # docker镜像名称
+    restart: on-failure
+    ports: # 这个端口映射
+      - 
+    volumes: # 这个表示存储空间映射
+      - /share:
+    environment:
+      -  # 这个是环境变量
+
+
+docker 配置
+
+/share:/share表示把宿主机环境(冒号左边)的/share目录映射到 docker 环境(冒号右边)下的/share目录
+
+使用者可以根据自己的路径不同进行调整。 那么问题来了，我自己到底该映射哪个目录？回答这个问题前，我们先了解/share应该要包含哪些目录
+
+包含你的下载目录(也就是你的源文件的目录)
+包含你的影音库目录(也就是你要硬链到目标地址目录)
+包含 hlink 所需的存储配置的目录(也就是 environment 中HLINK_HOME的地址)

@@ -31,6 +31,8 @@ Environment=STASH_CACHE=/cache/
 Environment=STASH_PORT=9999
 Environment=TZ=Asia/Shanghai
 
+PodmanArgs=--privileged
+
 [Service]
 Restart=always
 

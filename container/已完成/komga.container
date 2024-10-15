@@ -16,6 +16,8 @@ Volume=/home/yilibingtang/ProgramData/Podman/komga/config:/config:Z
 Volume=/home/yilibingtang/ProgramData/Podman/komga/data:/data:Z
 Environment=TZ=Asia/Shanghai
 
+PodmanArgs=--privileged
+
 [Service]
 Restart=always
 
